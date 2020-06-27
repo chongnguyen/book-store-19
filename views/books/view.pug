@@ -1,0 +1,12 @@
+
+extends ../layouts/common
+block container
+  .wrapper.mx-auto.w-50
+    h1.text-center Infomation Book
+    strong Book Title : 
+    span= book.name
+    br
+    strong Description :
+    span= book.desc
+    br
+    a(href='/book') &larr; Back

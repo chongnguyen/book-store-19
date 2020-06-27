@@ -1,0 +1,17 @@
+extends ../layouts/common
+block container
+  .wrapper.mx-auto.w-50
+    h1.text-center Create transaction
+    form(method='POST')
+      .form-group
+        label(for='exampleFormControlSelect1') Select book
+        select(name='bookId')#exampleFormControlSelect1.form-control
+          each book in books
+            option(value=book.id)= book.name
+      .form-group
+        label(for='exampleFormControlSelect1') Select user
+        select(name='userId')#exampleFormControlSelect1.form-control
+          each user in users
+            option(value=user.id)= user.email
+      input.btn.btn-primary(type='submit' value='Create')
+      a(href='/transaction').btn.btn-light.border.ml-4 Cancel

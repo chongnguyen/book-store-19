@@ -1,0 +1,57 @@
+{
+  "books": [
+    {
+      "name": "Người bán hàng vĩ đại nhất thế giới",
+      "desc": "10 cuộn da dê chứa những nguyên tắc về thành công của tác giả Od Madino",
+      "id": "uDqBxGIKx"
+    },
+    {
+      "name": "Đắc nhân tâm",
+      "desc": "Quyển sach hay nhat moi thoi dai",
+      "id": "ZF_51vjuv"
+    },
+    {
+      "name": "Hoàng tử bé",
+      "desc": "Hẹn em lúc 4h mà 3h lòng tôi đã rào rực - Hoàng tử bé",
+      "id": "wPfBSB-7w"
+    }
+  ],
+  "users": [
+    {
+      "email": "trongnguyen0324@gmail.com",
+      "password": "$2b$10$aiDcCK/5E.aIOmhAuWoX2OTbg/2MXvn04VD0RIkzEkAQRXKss4kp.",
+      "id": "R6Rml6Gr9"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2b$10$xoHwH0sVfZKhKtAEJzz.v.FW6SBQ1jtZF.J9G.sO9BRW/xkNM8tTG",
+      "id": "gbXDmh5oR"
+    }
+  ],
+  "transactions": [
+    {
+      "bookId": "uDqBxGIKx",
+      "userId": "R6Rml6Gr9",
+      "id": "HzyFLxydC",
+      "state": false
+    },
+    {
+      "bookId": "ZF_51vjuv",
+      "userId": "R6Rml6Gr9",
+      "id": "HdKobB0t_",
+      "state": true
+    },
+    {
+      "bookId": "wPfBSB-7w",
+      "userId": "gbXDmh5oR",
+      "id": "zjq2UcQgT",
+      "state": false
+    },
+    {
+      "bookId": "uDqBxGIKx",
+      "userId": "gbXDmh5oR",
+      "id": "KNtQPZ4Zu",
+      "state": true
+    }
+  ]
+}

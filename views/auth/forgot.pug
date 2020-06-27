@@ -1,0 +1,12 @@
+extends ../layouts/common
+block container
+  .wrapper.w-50.mx-auto
+    h1.text-center.text-primary Forgot Password
+    if error
+      div.alert-danger= error
+    form(method='POST')
+      .form-group
+        label(for='exampleInputEmail1') Email address
+        input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email' 
+          name='email' value=value?value.email : '')
+      button.btn.btn-primary(type='submit') Submit

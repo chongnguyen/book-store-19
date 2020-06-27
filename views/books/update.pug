@@ -1,0 +1,13 @@
+extends ../layouts/common
+block container
+  .wrapper.w-50.mx-auto
+    h1.text-center Update book
+    form(method='POST')
+      .form-group
+        label(for='exampleFormControlInput1') Book Title
+        input#exampleFormControlInput1.form-control(name='name' value=book.name)
+      .form-group
+        label(for='exampleFormControlTextarea1') Description
+        textarea#exampleFormControlTextarea1.form-control(rows='3' name='desc' )= book.desc
+      button.btn.btn-primary(type='submit') Update
+      a.btn.btn-secondary.ml-4(href='/book') Cancel
