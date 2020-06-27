@@ -1,0 +1,18 @@
+extends ../layouts/common
+block container
+  .wrapper.w-50.mx-auto
+    h1.text-center Users
+    a.btn.btn-primary.my-2(href='/user/create') Add new user
+    hr
+    h2 List user
+    if(!users.length)
+      p No user yet
+    ul
+      each user in users
+        li.my-2
+          span= user.email
+          a.btn.btn-light.ml-4.border(href='/user/delete/' + user.id) Delete
+
+
+
+          

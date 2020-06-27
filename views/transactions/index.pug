@@ -1,0 +1,32 @@
+extends ../layouts/common
+block container
+  .content.mx-5.w-100
+    h1.text-center Transactions
+    if(isAdmin)
+      div
+        a.btn.btn-primary(href='/transaction/create') Add new transaction
+    hr
+    if(transactions.length == 0)
+      p No transaction yet 
+    else
+      table.table.table-hover
+        thead
+          tr
+            th(scope='col') #
+            th(scope='col') Book title
+            th(scope='col') Borrower
+            th(scope='col') State
+            th(scope='col') Handle
+        tbody
+          each trans, index in transactions
+            tr
+              th(scope='row')= (index + 1)
+              td= trans.book.name
+              td= trans.user.email
+              td= trans.state ?' Complete' : 'Uncomplete'
+              td
+                a(href='transaction/' + 
+                  trans.id + '/complete')= trans.state ?' Uncomplete' : 'Complete'
+    
+    
+      

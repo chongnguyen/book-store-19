@@ -1,0 +1,30 @@
+doctype html
+head
+  meta(charset='utf-8')
+  meta(name='viewport', content='width=device-width')
+  link(rel="shortcut icon" type="image/png" href="https://cdn.glitch.com/f3e595b7-b7ef-44d1-a3e0-20da507e0fd6%2Ffavicon.ico?v=1593071405025")
+  title Book Store
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+.header
+  nav.navbar.navbar-expand-lg.navbar-light.bg-light
+    a.navbar-brand(href='/') Book Store
+    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
+      span.navbar-toggler-icon
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        li.nav-item.active
+          a.nav-link(href='/')
+            | Home
+            span.sr-only (current)
+        li.nav-item
+          a.nav-link(href='/transaction') Transactions
+        li.nav-item
+          a.nav-link(href='/user') Users
+        li.nav-item
+          a.nav-link(href='/book') Books
+      form.form-inline.my-2.my-lg-0(action='/user/search')
+        input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
+        button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
+.container
+  .row
+      block container

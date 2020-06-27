@@ -1,0 +1,27 @@
+extends ../layouts/common
+block container
+  .wrapper.w-50.mx-auto
+    h1.text-center Books
+    a.btn.btn-primary.my-2(href='/book/create') Add new book
+    hr
+
+    form(action='/book/search' method='GET')
+      .from-group
+        lable Book Title 
+        input.form-control(type='text' name='name' 
+          placeholder='Search book' value=title || '')
+      button.btn.btn-primary.my-2(type='submit') Search
+
+    h2 List book
+    if(!books.length)
+      p No book yet
+    ul
+      each book in books
+        li.my-2
+          span= book.name
+          span &nbsp;
+          a.btn.btn-light.mx-1.border(href='/book/' + book.id) View
+          span &nbsp;
+          a.btn.btn-light.mx-1.border(href='/book/delete/' + book.id) Delete
+          span &nbsp;
+          a.btn.btn-light.mx-1.border(href='/book/update/' + book.id) Edit

@@ -1,0 +1,16 @@
+extends ../layouts/common
+block container
+  .wrapper.w-50.mx-auto
+    h1.text-center.text-primary= email
+    if error
+      div.alert-danger= error
+    form(method='POST')
+      .form-group
+        input#exampleInputEmail1.form-control.d-none(type='email', name='email' value=email || '')
+      .form-group
+        label(for='exampleInputPassword1') Password
+        input#exampleInputPassword1.form-control(type='password', placeholder='Password' name='password')
+      form-group
+        label(for='exampleInputConfirm1') Confirm
+        input#exampleInputConfirm1.form-control(type='password', placeholder='Confirm' name='confirm')
+      button.btn.btn-primary(type='submit') Submit
