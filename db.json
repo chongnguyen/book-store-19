@@ -20,7 +20,9 @@
     {
       "email": "trongnguyen0324@gmail.com",
       "password": "$2b$10$aiDcCK/5E.aIOmhAuWoX2OTbg/2MXvn04VD0RIkzEkAQRXKss4kp.",
-      "id": "R6Rml6Gr9"
+      "id": "R6Rml6Gr9",
+      "resetPasswordToken": "579786",
+      "isAdmin": true
     },
     {
       "email": "admin@gmail.com",

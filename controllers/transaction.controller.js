@@ -6,10 +6,16 @@ const db = require("../db");
 
 module.exports.index = (req, res) => {
   // var users =
-  let {userId, isAdmin} = req.cookies;
-  isAdmin = true;
+  let {userId, isAdmin} = req.signedCookies;
+  // isAdmin = true;
+  var user = db.get('users').find({id: userId}).value();
+  if(!user){
+    res.redirect('/');
+    return;
+  }
+  
   let transactions = [];
-  if(!userId || isAdmin){
+  if(isAdmin){
      transactions = db.get("transactions").value() || [];
   } else {
      transactions = db.get("transactions").filter({userId}).value() || [];
