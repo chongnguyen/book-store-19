@@ -16,7 +16,6 @@ const transactionRouter = require("./routers/transaction.router");
 const authRouter = require("./routers/auth.router");
 const forgotRouter = require("./routers/forgot.router");
 
-
 const authMiddleware = require('./middlewares/auth.middleware');
 
 app.set("views", "./views");

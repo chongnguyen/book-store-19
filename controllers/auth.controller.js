@@ -76,8 +76,10 @@ module.exports.postLogin = (req, res) => {
       return;
     }
     
-    if (user.idAdmin) {
-      res.cookie("isAdmin", true);
+    if (user.isAdmin) {
+      res.cookie("isAdmin", true, {
+        signed: true
+      });
     }
 
     res.cookie("userId", user.id, {
