@@ -51,6 +51,8 @@ module.exports.postReset = (req, res) => {
     // Store hash in your password DB.
     user.password = hash;
     user.resetPasswordToken = undefined;
+    db.unset('users.resetPasswordToken')
+      .write()
     db.get("users")
       .find({ resetPasswordToken: code })
       .assign(user)

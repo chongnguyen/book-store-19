@@ -6,22 +6,30 @@ block container
     hr
 
     form(action='/book/search' method='GET')
-      .from-group
-        lable Book Title 
-        input.form-control(type='text' name='name' 
-          placeholder='Search book' value=title || '')
-      button.btn.btn-primary.my-2(type='submit') Search
+      lable Search by Book Title 
+      .d-flex.my-2
+        input.form-control.flex-1(type='text' name='name' 
+          placeholder='Search book' value=title || '' )
+        button.btn.btn-primary(type='submit') Search
 
-    h2 List book
-    if(!books.length)
-      p No book yet
-    ul
+  .container.my-2
+    .row.justify-content-between
       each book in books
-        li.my-2
-          span= book.name
-          span &nbsp;
-          a.btn.btn-light.mx-1.border(href='/book/' + book.id) View
-          span &nbsp;
-          a.btn.btn-light.mx-1.border(href='/book/delete/' + book.id) Delete
-          span &nbsp;
-          a.btn.btn-light.mx-1.border(href='/book/update/' + book.id) Edit
+        .card.mb-3(style='width: 24%;')
+          img.card-img-top(src= book.image, alt='image book')
+          .card-body
+            h5.card-title= book.name
+            p.card-text= book.desc
+            a.btn.btn-primary(href='#') Buy now
+    nav(aria-label='Page navigation example')
+      ul.pagination.justify-content-center
+        li.page-item(class= previous.state)
+          a.page-link(href='/book/?page=' + previous.value) Previous
+        each page in pagination
+          -var state = ''
+          if(page == pageCurrent)
+            -state = 'active'
+          li.page-item(class=state)
+            a.page-link(href='/book/?page=' + page)= page
+        li.page-item(class= next.state)
+          a.page-link(href='/book/?page=' + next.value) Next
