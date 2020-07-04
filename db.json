@@ -658,6 +658,26 @@
       "userId": "gbXDmh5oR",
       "id": "KNtQPZ4Zu",
       "state": true
+    },
+    {
+      "bookId": "Sj71aQRUL",
+      "userId": "gbXDmh5oR",
+      "id": "cHVZ-nvFA",
+      "state": false
+    },
+    {
+      "bookId": "63040fa1-07e9-4a51-a668-844b52d60bb9",
+      "userId": "gbXDmh5oR",
+      "id": "YRpsAwMRU",
+      "state": false
+    }
+  ],
+  "sessions": [
+    {
+      "id": "9mGhV-_AB",
+      "cart": {
+        "e773e36d-a16a-4a39-9197-c4a74157048e": 2
+      }
     }
   ]
 }

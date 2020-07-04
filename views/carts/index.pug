@@ -1,0 +1,28 @@
+extends ../layouts/common
+block container
+  .content.w-100
+    h1.text-center My Cart
+    table.table
+      thead
+        tr
+          th(scope='col') #
+          th(scope='col') Picture
+          th(scope='col') Book Title
+          th(scope='col')
+          th(scope='col')
+      tbody
+        each item, i in listItem
+          tr
+            th(scope='row')= i + 1
+            td
+              img(src=item.image width=32)
+            td= item.name
+            td
+              form(action='/transaction/create' method='POST')
+                .form-group
+                    input.d-none(name='bookId' value=item.id)
+                    input.d-none(name='userId' value=user.id)
+                input.btn.btn-primary(type='submit' value='Borrow')
+            td
+              a(href='/cart/delete/' + item.id).btn.btn-light Remove
+                

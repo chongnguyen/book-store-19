@@ -20,7 +20,10 @@ block container
           .card-body
             h5.card-title= book.name
             p.card-text= book.desc
-            a.btn.btn-primary(href='#') Buy now
+            .d-flex
+              a.btn.btn-primary(href='#') Borrow now
+              a.btn.btn-success.ml-auto(href='/cart/add/' + book.id) Add to cart
+
     nav(aria-label='Page navigation example')
       ul.pagination.justify-content-center
         li.page-item(class= previous.state)

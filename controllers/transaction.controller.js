@@ -21,24 +21,32 @@ module.exports.index = (req, res) => {
      transactions = db.get("transactions").filter({userId}).value() || [];
   }
   var trans = transactions.map(item => {
-    var book =
-      db
-        .get("books")
+    var book = db.get("books")
         .find({ id: item.bookId })
         .value() || {};
-    var user =
-      db
-        .get("users")
+    console.log(book);
+    var user =db.get("users")
         .find({ id: item.userId })
         .value() || {};
     var { id, state } = item;
     return { book, user, id , state};
   });
+  console.log(trans);
   res.render("transactions/index", {
     transactions: trans,
     isAdmin
   });
 };
+
+// module.exports.create = (req, res) => {
+//   var users = db.get("users").value() || [];
+//   var books = db.get("books").value() || [];
+//   console.log(users, books);
+//   res.render("transactions/create", {
+//     users,
+//     books
+//   });
+// };
 
 module.exports.create = (req, res) => {
   var users = db.get("users").value() || [];
@@ -55,13 +63,26 @@ module.exports.create = (req, res) => {
 // };
 
 module.exports.postCreate = (req, res) => {
+  let id = req.signedCookies.sessionId;
+  
   req.body.id = shortid.generate();
   req.body.state = false;
-  console.log(req.body);
+  
   db.get("transactions")
     .push(req.body)
     .write();
-  res.redirect("/transaction");
+  
+  let cart = db.get('sessions')
+    .find({id}).value().cart;
+  
+  delete cart[req.body.bookId];
+  
+  db.get('sessions')
+  .find({ id })
+  .assign({ cart })
+  .write();
+  
+  res.send('<script>alert("Đã thêm vào Transacitons"); document.location = "/cart";</script>');
 };
 
 module.exports.isComplete = (req, res) => {

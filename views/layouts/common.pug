@@ -11,7 +11,7 @@ head
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarSupportedContent', aria-controls='navbarSupportedContent', aria-expanded='false', aria-label='Toggle navigation')
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
-      ul.navbar-nav.mr-auto
+      ul.navbar-nav
         li.nav-item.active
           a.nav-link(href='/')
             | Home
@@ -26,7 +26,9 @@ head
             a.nav-link(href='/user/profile') Profile
         li.nav-item
           a.nav-link(href='/book') Books
-      form.form-inline.my-2.my-lg-0(action='/user/search')
+        li.nav-item
+          a.nav-link.ml-auto(href='/cart') Cart(#{items})
+      form.form-inline.my-2.my-lg-0.ml-auto(action='/user/search')
         input.form-control.mr-sm-2(type='search', placeholder='Search', aria-label='Search')
         button.btn.btn-outline-success.my-2.my-sm-0(type='submit') Search
 .container

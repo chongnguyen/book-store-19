@@ -1,10 +1,3 @@
-// server.js
-// where your node app starts
-
-// we've started you off with Express (https://expressjs.com/)
-// but feel free to use whatever libraries or frameworks you'd like through `package.json`.
-const express = require("express");
-var cookieParser = require("cookie-parser");
 // var cloudinary = require('cloudinary');
 
 // cloudinary.config({ 
@@ -13,6 +6,10 @@ var cookieParser = require("cookie-parser");
 //   api_secret: process.env.API_SECRET 
 // });
 
+const express = require("express");
+var cookieParser = require("cookie-parser");
+
+
 const app = express();
 
 const bookRouter = require("./routers/book.router");
@@ -20,8 +17,12 @@ const userRouter = require("./routers/user.router");
 const transactionRouter = require("./routers/transaction.router");
 const authRouter = require("./routers/auth.router");
 const forgotRouter = require("./routers/forgot.router");
+const cartRouter = require("./routers/cart.router");
+
 
 const authMiddleware = require("./middlewares/auth.middleware");
+const sessionMiddleware = require("./middlewares/session.middleware");
+
 
 app.set("views", "./views");
 app.set("view engine", "pug");
@@ -30,11 +31,12 @@ app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(express.static("public"));
+app.use(sessionMiddleware.session);
 
 // https://expressjs.com/en/starter/basic-routing.html
 
 app.use("/auth", authRouter);
-app.use("/book", authMiddleware.authLogin, bookRouter);
+app.use("/book", bookRouter);
 app.use("/user", authMiddleware.authLogin, userRouter);
 app.use("/transaction", authMiddleware.authLogin, transactionRouter);
 app.use("/forgot", forgotRouter);
@@ -45,6 +47,7 @@ app.get("/",authMiddleware.authLogin, (request, response) => {
   // function(error, result) {console.log(result, error)});
  response.render("index");
 });
+app.use('/cart', cartRouter);
 
 
 
