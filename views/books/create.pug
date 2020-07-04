@@ -2,12 +2,15 @@ extends ../layouts/common
 block container
   .wrapper.w-50.mx-auto
     h1.text-center Create book
-    form(method='POST')
+    form(method='POST' enctype="multipart/form-data")
       .form-group
         label(for='exampleFormControlInput1') Book Title
         input#exampleFormControlInput1.form-control(name='name')
       .form-group
         label(for='exampleFormControlTextarea1') Description
         textarea#exampleFormControlTextarea1.form-control(rows='3' name='desc')
+      .form-group
+        label Image
+        input.form-control-file(type='file' name='image')
       button.btn.btn-primary(type='submit') Create
 

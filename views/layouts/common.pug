@@ -18,8 +18,12 @@ head
             span.sr-only (current)
         li.nav-item
           a.nav-link(href='/transaction') Transactions
-        li.nav-item
-          a.nav-link(href='/user') Users
+        if(isAdmin)
+          li.nav-item
+            a.nav-link(href='/user') Users
+        else
+          li.nav-item
+            a.nav-link(href='/user/profile') Profile
         li.nav-item
           a.nav-link(href='/book') Books
       form.form-inline.my-2.my-lg-0(action='/user/search')

@@ -1,0 +1,8 @@
+extends ../layouts/common
+block container
+  .profile
+    h1.d-block Profile User
+    a(href='/user/profile/avatar') Update Avatar
+    -var src='https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png'
+    img.w-25.d-block.m-auto(src=user.avatar || src  alt='avatar')
+    p.text-center= user.email

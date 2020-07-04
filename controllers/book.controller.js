@@ -1,4 +1,11 @@
 const shortid = require("shortid");
+var cloudinary = require('cloudinary');
+
+cloudinary.config({ 
+  cloud_name: process.env.CLOUND_NAME,
+  api_key: process.env.API_KEY, 
+  api_secret: process.env.API_SECRET 
+});
 
 const db = require('../db');
 
@@ -85,6 +92,18 @@ module.exports.update = (req, res) => {
 
 module.exports.postCreate = (req, res) => {
   req.body.id = shortid.generate();
+  var filename = req.file.path.split('/')[2];
+  req.body.image = "https://res.cloudinary.com/di3tcnhtx/image/upload/v1593609558/avatar_user/" + filename;
+  cloudinary.v2.uploader.upload(req.file.path, 
+  {resource_type: "image", public_id: "avatar_user/" + filename,
+  overwrite: true},
+  function(error, result) {
+    console.log(result, error)
+    const fs = require('fs')
+    fs.unlinkSync(req.file.path)
+  });
+    
+  
   db.get("books")
     .push(req.body)
     .write();

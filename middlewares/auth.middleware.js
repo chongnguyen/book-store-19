@@ -11,5 +11,8 @@ module.exports.authLogin = (req, res, next) => {
   if(!user){
     res.redirect('/auth/login');
   }
+  
+  res.locals.isAdmin= user.isAdmin;
+  
   next();
 }

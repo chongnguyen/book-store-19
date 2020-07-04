@@ -599,6 +599,24 @@
       "name": "Jane Eyre",
       "desc": "justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut erat id",
       "image": "http://dummyimage.com/100x100.jpg/cc0000/ffffff"
+    },
+    {
+      "name": "Test",
+      "desc": "mo taa",
+      "id": "Qcd3bcMQ0",
+      "image": "https://res.cloudinary.com/di3tcnhtx/image/upload/v1593609558/avatar_user/e5dbed82d44b3ba277442e28763815e4"
+    },
+    {
+      "name": "tst1",
+      "desc": "sdfa",
+      "id": "Sj71aQRUL",
+      "image": "https://res.cloudinary.com/di3tcnhtx/image/upload/v1593609558/avatar_user/e0c46da7427d2d9e7818835a3d30d350"
+    },
+    {
+      "name": "55",
+      "desc": "555",
+      "id": "1-XoOe0si",
+      "image": "https://res.cloudinary.com/di3tcnhtx/image/upload/v1593609558/avatar_user/5d6246600c37890cb1f649877a798cd2"
     }
   ],
   "users": [
@@ -612,7 +630,8 @@
     {
       "email": "admin@gmail.com",
       "password": "$2b$10$xoHwH0sVfZKhKtAEJzz.v.FW6SBQ1jtZF.J9G.sO9BRW/xkNM8tTG",
-      "id": "gbXDmh5oR"
+      "id": "gbXDmh5oR",
+      "avatar": "https://res.cloudinary.com/di3tcnhtx/image/upload/v1593609558/avatar_user/f6825a10b799e7c16f65aa75fb7f022c"
     }
   ],
   "transactions": [

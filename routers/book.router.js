@@ -1,4 +1,6 @@
 const express = require('express');
+var multer  = require('multer')
+var upload = multer({ dest: './public/uploads/' })
 
 const controller = require('../controllers/book.controller');
 
@@ -18,7 +20,7 @@ router.get("/delete/:id", controller.delete);
 
 router.get("/update/:id", controller.update);
 
-router.post("/create", controller.postCreate);
+router.post("/create", upload.single('image'),controller.postCreate);
 
 router.post("/update/:id", controller.postUpdate);
 
